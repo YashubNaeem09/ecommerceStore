@@ -15,16 +15,15 @@
                 </ul>
             </div>
             <div class="social-icons d-flex align-items-center">
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-facebook"></i></a>
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-twitter"></i></a>
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-linkedin"></i></a>
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-instagram"></i></a>
-          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-youtube"></i></a>
-        </div>
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-facebook"></i></a>
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-twitter"></i></a>
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-linkedin"></i></a>
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-instagram"></i></a>
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-youtube"></i></a>
+            </div>
         </div>
     </nav>
-    <nav class="custom-navbar navbar navbar navbar-expand-md navigation2" arial-label="Furni navigation bar">
-
+    <nav class="custom-navbar navbar navbar navbar-expand-md navigation2" arial-label="Furni navigation bar" v-if="auth">
         <div class="container">
             <a class="navbar-brand" href="">Shop Shop<span>.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
@@ -43,8 +42,13 @@
                     <li><a class="nav-link" href="contact.html">Contact us</a></li>
                 </ul>
                 <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                    <li v-on:click="Logout"><a class="nav-link" href="#">
-                            <RouterLink to="/"><span class="bi bi-person"></span></RouterLink></a></li>
+                    <li v-if="!auth" v-on:click="Logout"><a class="nav-link" href="#">
+                            <RouterLink to="/login"><span class="bi bi-person"></span></RouterLink></a></li>
+                    <li v-else>
+                        <a class="nav-link" href="#">
+                            <RouterLink to="/login">Login</RouterLink>
+                        </a>
+                    </li>
                     <li><a class="nav-link" href="cart.html"><span class="bi bi-cart"></span></a></li>
                 </ul>
             </div>
@@ -129,16 +133,18 @@ export default {
     text-decoration: underline;
 
 }
- .social-icons{
+
+.social-icons {
     padding-right: 40px;
-} 
-.social-icons a{
+}
+
+.social-icons a {
     margin-left: 10px;
 }
+
 @media (max-width: 991px) {
     .social-icons {
         padding-left: 10rem;
     }
-    
-}
-</style>
+
+}</style>

@@ -37,9 +37,10 @@
               </div>
               <a href="#!">Forgot password?</a>
             </div>
-            <div class="d-flex justify-content-around align-items-center mb-4">
+            <div class="d-flex justify-content-around align-items-center mb-4 ml-1">
               <!-- Submit button -->
               <button type="submit" class="btn btn-outline-primary button-extended-padding ">Sign in</button>
+              <router-link to="/signup">Signup</router-link>
             </div>
           </form>
         </div>
@@ -76,7 +77,7 @@ export default {
       const token = response.data.token;
       Cookies.set('token', token);
       Cookies.set('username', data.username);
-      router.push('/dashboard')
+      router.push('/')
       }
       catch (err) {
         error.value = "Username or Password is Incorrect!";
@@ -131,6 +132,6 @@ export default {
 }
 
 .button-extended-padding {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
 }</style>
