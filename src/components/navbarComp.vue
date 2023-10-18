@@ -44,11 +44,12 @@
                 <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                     <li v-if="!auth" v-on:click="Logout"><a class="nav-link" href="#">
                             <RouterLink to="/login"><span class="bi bi-person"></span></RouterLink></a></li>
-                    <li v-else>
+                    <li v-else-if="auth">
                         <a class="nav-link" href="#">
                             <RouterLink to="/login">Login</RouterLink>
                         </a>
                     </li>
+                    <li v-else></li>
                     <li><a class="nav-link" href="cart.html"><span class="bi bi-cart"></span></a></li>
                 </ul>
             </div>
