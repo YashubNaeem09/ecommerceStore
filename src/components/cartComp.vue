@@ -11,10 +11,10 @@
 
                 <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
 
-                <div class="d-flex align-items-center mb-5">
-                  <div class="flex-shrink-0" v-for="item in cart" :key="item.product.id">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                      class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+                <div v-for="item in cart" :key="item.product.id" class="d-flex align-items-center mb-5">
+                  <div class="flex-shrink-0">
+                    <img v-if="item.product.image" :src="item.product.image"
+                      class="img-fluid" style="width: 80px;" alt="Generic placeholder image">
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
@@ -115,9 +115,13 @@ export default{
         const cart = computed(() => store.state.cart );
         onMounted( async() =>  {
             const productID = router.currentRoute.value.params.id;
+            await store.dispatch('addProductToCart', productID);
             
 
-        })
+        });
+        return{
+          cart
+        }
 
     }
 }

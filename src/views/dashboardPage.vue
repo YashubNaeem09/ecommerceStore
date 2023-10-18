@@ -478,10 +478,10 @@ export default {
                 headers: { 'Content-Type': 'application/json' },
             });
             await response.json();
+            await store.dispatch('setAuth', true)
             if(token)
             {
                 message.value = `HI ${user},`;
-                await store.dispatch('setAuth', true)
             }
             else {
                 message.value = `HI`;

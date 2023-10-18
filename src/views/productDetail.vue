@@ -97,7 +97,7 @@ export default {
       }
     onMounted(async() => {
       const productID = router.currentRoute.value.params.id;
-      await store.dispatch('getProduct', productID);
+      await store.dispatch('getProduct', productID); 
     });
 
     return {
