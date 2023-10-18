@@ -3,6 +3,7 @@ import userLogin from '@/views/userLogin.vue';
 import dashboardPage from '@/views/dashboardPage.vue';
 import productDetail from '@/views/productDetail.vue';
 import userSignup from '@/views/userSignup.vue';
+import cartComp from '@/components/cartComp.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -23,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
   path: '/signup',
   name: 'userSignup',
   component: userSignup
+},
+{
+  path: '/cart/:id',
+  name: 'cartComp',
+  component: cartComp
 }
 ]
 

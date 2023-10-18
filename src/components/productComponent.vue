@@ -4,21 +4,21 @@
             <h2 class="section-title px-4"><span class="px-5">Prodcuts</span></h2>
         </div>
         <div class="row px-xl-5 pb-3 px-5">
-            <div class="col-xl-4 col-md-6 col-sm-12 mb-4" v-for="products in data.product" :key="products.id">
+            <div class="col-xl-4 col-md-6 col-sm-12 mb-4" v-for="product in products" :key="product.id">
                 <div class="card w-100 h-100">
 
-                    <img :src="products.image" class="card-img-top custom-img">
+                    <img :src="product.image" class="card-img-top custom-img">
 
                     <div class="card-body text-center p-0 pt-2">
                         <div class="card-content d-flex flex-column justify-content-flex-start align-items-left mb-1">
-                            <h5 class="card-title titleCard">{{ products.title }}</h5>
+                            <h5 class="card-title titleCard">{{ product.title }}</h5>
                         </div>
                         <!-- <div class="card-price d-flex justify-content-center bg-light border">
                         <p class="card-text">Price: ${{ products.price }}</p>
                     </div> -->
                         <div class="card-footer d-flex justify-content-between bg-light border p-2">
-                            <a href="" class="btn btn-sm text-dark p-0">Price: ${{ products.price }}</a>
-                            <a href="#" class="btn btn-sm text-dark p-0"><router-link :to="{name: 'productDetail', params: {id: products.id}}">View Details</router-link></a>
+                            <a href="" class="btn btn-sm text-dark p-0">Price: ${{ product.price }}</a>
+                            <a href="#" class="btn btn-sm text-dark p-0"><router-link :to="{name: 'productDetail', params: {id: product.id}}">View Details</router-link></a>
                         </div>
                     </div>
                 </div>
@@ -42,34 +42,21 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
-import { useRouter } from 'vue-router';
-import { ref, onMounted, reactive } from 'vue';
+import { onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
     name: 'productComponent',
     setup() {
-        const router = useRouter();
-        const data = reactive({
-            product: ref([])
-        });
-        const viewProductDetails = (productId : number) => {
-            // Use the router's push method to navigate to the productDetail route
-            router.push({ name: 'productDetail', params: { id: productId } });
-        };
-
+        const store = useStore();
+    //    computed : {products() { store.state.products }}
+        const products = computed (() => store.state.products)
         onMounted(async () => {
-            try {
-                const response = await axios.get(`/api/products`);
-                data.product = response.data
-            }
-            catch(error){
-                console.error(error);
-            }
+            await store.dispatch('getProducts')
         });
         return {
-            data,
-            viewProductDetails
+            products
+            
         }
     }
     

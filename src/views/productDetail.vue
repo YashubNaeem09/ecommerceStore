@@ -64,7 +64,7 @@
               </div>
               <div class="buttons">
                 <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-                <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 bi bi-cart-check-fill"></i> Add to cart </a>
+                <a href="#" class="btn btn-warning shadow-0"><i class="me-1 bi bi-cart-check-fill"></i> <router-link :to="{name: 'cartComp', params: {id: product.id}}">ADD TO CART</router-link></a>
                 <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
                   class="me-1 bi bi-heart-fill fa-lg"></i> Save </a>
               </div>
@@ -79,34 +79,33 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
+import { computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
-import { onMounted, ref } from 'vue';
 
 export default {
   name: 'productDetail',
   setup() {
-    const product = ref(null);
+    const store = useStore();
     const router = useRouter();
-
-    const loadProductData = async () => {
-      const productID = router.currentRoute.value.params.id;
-      try {
-        const response = await axios.get(`/api/products/${productID}`);
-        product.value = response.data;
-      } catch (error) {
-        console.error('Error fetching product details:', error);
+    const product = computed (() =>  store.state.product);
+    const addToCart = async() => {
+        store.dispatch('addProductToCart', {
+                product: product.value
+            });
+        // router.push('/cart');
       }
-    };
-
-    onMounted(loadProductData);
+    onMounted(async() => {
+      const productID = router.currentRoute.value.params.id;
+      await store.dispatch('getProduct', productID);
+    });
 
     return {
       product,
+      addToCart
     };
   },
 };
-
 </script>
 
 <style scoped>
