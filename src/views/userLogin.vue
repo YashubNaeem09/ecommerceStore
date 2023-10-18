@@ -54,6 +54,7 @@ import axios from 'axios';
 import {reactive, ref } from 'vue';
 import Cookies from 'js-cookie';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 export default {
   name: 'userLogin',
   setup() {
@@ -64,11 +65,12 @@ export default {
     });
     const router = useRouter();
     const error = ref('');
+    const store = useStore();
 
     const loginUser = async () => {
       try{
         axios.defaults.withCredentials = true;
-      const response = await axios.post(`/api/auth/login`,
+        const response = await axios.post(`/api/auth/login`,
         JSON.stringify(data),
         {
           headers: { 'Content-Type': 'application/json' }
@@ -77,6 +79,7 @@ export default {
       const token = response.data.token;
       Cookies.set('token', token);
       Cookies.set('username', data.username);
+      await store.dispatch('setAuth', true);
       router.push('/')
       }
       catch (err) {

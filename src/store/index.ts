@@ -5,6 +5,7 @@ export default createStore({
     authenticated: false
   },
   getters: {
+    isAuthenticated: (state) => state.authenticated
   },
   mutations: {
     SET_AUTH: (state: {authenticated: boolean}, auth: boolean) => state.authenticated = auth

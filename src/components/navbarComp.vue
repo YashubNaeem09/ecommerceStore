@@ -44,14 +44,14 @@
                 <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
                     <li v-if="!auth" v-on:click="Logout"><a class="nav-link" href="#">
                             <RouterLink to="/login"><span class="bi bi-person"></span></RouterLink></a></li>
-                    <li v-else-if="auth">
+                    <li v-else>
                         <a class="nav-link" href="#">
                             <RouterLink to="/login">Login</RouterLink>
                         </a>
                     </li>
-                    <li v-else></li>
                     <li><a class="nav-link" href="cart.html"><span class="bi bi-cart"></span></a></li>
                 </ul>
+                </div>
             </div>
         </div>
 
@@ -71,7 +71,7 @@ export default {
         const auth = computed(() => store.state.authenticated)
         const Logout = async () => {
             axios.defaults.withCredentials = true;
-            await fetch(`/api/auth/login`, {
+            await fetch(`/api/users`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' }
             })

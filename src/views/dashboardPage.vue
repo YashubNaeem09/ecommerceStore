@@ -472,13 +472,19 @@ export default {
         onMounted(async () => {
             axios.defaults.withCredentials = true;
             const user = Cookies.get('username');
-            const response = await fetch(`/api/users`, {
-                method: 'GET',
+            try {
+                const response = await fetch(`/api/users`, {
+                // method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
             await response.json();
             message.value = `HI ${user},`;
-            await store.dispatch('setAuth', true);
+            await store.dispatch('setAuth', true)
+            }
+            catch(error)
+            {
+                await store.dispatch('setAuth', false)
+            }
         });
         return {
             message
