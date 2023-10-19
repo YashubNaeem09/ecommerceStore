@@ -64,7 +64,7 @@
               </div>
               <div class="buttons">
                 <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-                <a href="#" class="btn btn-warning shadow-0"><i class="me-1 bi bi-cart-check-fill"></i> <router-link :to="{name: 'cartComp', params: {id: product.id}}">ADD TO CART</router-link></a>
+                <a href="#" class="btn btn-warning shadow-0"><i class="me-1 bi bi-cart-check-fill"></i> <router-link to="/cart">ADD TO CART</router-link></a>
                 <a href="#" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i
                   class="me-1 bi bi-heart-fill fa-lg"></i> Save </a>
               </div>
@@ -82,6 +82,7 @@
 import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
+import Cookies from 'js-cookie';
 
 export default {
   name: 'productDetail',
@@ -90,10 +91,11 @@ export default {
     const router = useRouter();
     const product = computed (() =>  store.state.product);
     const addToCart = async() => {
-        store.dispatch('addProductToCart', {
-                product: product.value
+          store.dispatch('addProductToCart', {
+                product: product.value,
             });
-        // router.push('/cart');
+            const cart = store.state.cart;
+            Cookies.set('cart', cart);
       }
     onMounted(async() => {
       const productID = router.currentRoute.value.params.id;

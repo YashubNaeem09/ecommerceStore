@@ -26,7 +26,7 @@ const routes: Array<RouteRecordRaw> = [
   component: userSignup
 },
 {
-  path: '/cart/:id',
+  path: '/cart',
   name: 'cartComp',
   component: cartComp
 }

@@ -47,7 +47,7 @@ export default createStore({
   //   commit('ADD_TO_CART', {product, quantity})
   // )},
    addProductToCart: ({commit}, productID) => {
-    axios.get(`/api/products/${productID}`)
+    axios.get(`/api/products?id=${productID}`)
     .then(response => {
       commit('ADD_TO_CART', response.data)
     })

@@ -50,7 +50,7 @@
                             <RouterLink to="/login">Login</RouterLink>
                         </a>
                     </li>
-                    <li><a class="nav-link" href="cart.html"><span class="bi bi-cart"></span></a></li>
+                    <!-- <li><a class="nav-link" href="cart.html"><RouterLink :to="{name: 'cartComp', params: {id: product.id}}"><span class="bi bi-cart"></span></RouterLink></a></li> -->
                 </ul>
                 </div>
             </div>
@@ -69,6 +69,7 @@ export default {
     name: 'navbarComp',
     setup() {
         const store = useStore();
+        const product = computed(() => store.state.product)
         const auth = computed(() => store.state.authenticated)
         const Logout = async () => {
             axios.defaults.withCredentials = true;
@@ -82,6 +83,7 @@ export default {
 
         return {
             auth,
+            product,
             Logout
         }
     }
