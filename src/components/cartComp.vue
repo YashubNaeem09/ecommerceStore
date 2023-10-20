@@ -106,17 +106,25 @@
 import { useStore } from 'vuex';
 import {computed, onMounted} from 'vue';
 import { useRouter } from 'vue-router';
+import Cookies from 'js-cookie';
 
 export default{
     name: 'cartComp',
     setup(){
         const store = useStore();
         const router = useRouter();
-        const cart = computed(() => store.state.cart );
+        const cart = computed(() => 
+        {
+          store.state.cart 
+          const cartData = Cookies.get('cart');
+          return cartData ? JSON.parse(cartData) : [];
+        });
+        // const filteredCart = computed(() => this.cart.filter(item => item.product !== null));
         onMounted( async() =>  {
             const productID = router.currentRoute.value.params.id;
             await store.dispatch('addProductToCart', productID);
-            
+            // Cookies.get(JSON.parse('cart'));
+          //  const cartItems = store.dispatch('getCartItems');
 
         });
         return{
