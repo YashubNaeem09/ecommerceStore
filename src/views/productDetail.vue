@@ -91,11 +91,14 @@ export default {
     const router = useRouter();
     const product = computed (() =>  store.state.product);
     const productID = router.currentRoute.value.params.id;
+    const quantity =1;
     console.log(productID)
     const addToCart = async() => {
           store.dispatch('addProductToCart', {
                 // product : product.value,
                 productID,
+                quantity
+                
             });
             
             router.push('/cart');

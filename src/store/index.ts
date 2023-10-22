@@ -20,7 +20,16 @@ export default createStore({
       state.cart.push({
         product : state.product,
       });
+    },
+    Get_Products_From_Cart : (state, product) => {
+      state.cart = state.cart || [];
+      state.cart.push({
+        product: product
+
+      });
+
     }
+
     // ADD_TO_CART: (state , payload ) => {
     //   state.cart.push({
     //     product: payload.product,
@@ -55,20 +64,29 @@ export default createStore({
       const product = response.data;
       console.log(JSON.stringify(product))
       const cookieData = JSON.stringify(product);
-      if(cookieData){
+     
+      if(cookieData || !null){
         Cookies.set('cart', cookieData);
-      }
-      const cartData = Cookies.get('cart');
-      if(cartData){
-        const cart = cartData ? JSON.parse(cartData) : [];
-       console.log('cartData: ',cart);
-       
       }
      // const cookie = Cookies.set('cart', cookieData);
       commit('ADD_TO_CART', product)
 
     })
    },
+   getProductFromCart: ({commit}, productID) => {
+    axios.get(`/api/products/${productID?.productID}`)
+    .then(response => {
+      const product = response.data;
+      const cartData = Cookies.get('cart');
+      if(cartData || !null){
+        const cart = cartData ? JSON.parse(cartData) : [];
+        // cart.push(product);
+        console.log('cartData: ',cart);
+       
+      }
+      commit('Get_Products_From_Cart', product)
+    })
+   }
    
 
   // addProductToCart : async({ commit, state}, productID) => {

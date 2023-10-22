@@ -13,13 +13,14 @@
 
                 <div v-for="item in cart" :key="item.product.id" class="d-flex align-items-center mb-5">
                   <div class="flex-shrink-0">
+                    <!-- {{ item }}, {{ item.product }}, {{ item.title }} -->
                     <img v-if="item.product.image" :src="item.product.image"
                       class="img-fluid" style="width: 80px;" alt="Generic placeholder image">
                   </div>
                   <div class="flex-grow-1 ms-3">
                     <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
                     <h5 class="text-primary">{{ item.product.title }}</h5>
-                    <h6 style="color: #9e9e9e;">{{item.product.quantity}}</h6>
+                    <h6 style="color: #9e9e9e;">{{item.quantity}}</h6>
                     <div class="d-flex align-items-center">
                       <p class="fw-bold mb-0 me-5 pe-3">{{ item.product.price }}</p>
                       <div class="def-number-input number-input safari_only">
@@ -115,14 +116,22 @@ export default{
         const router = useRouter();
         const cart = computed(() => 
         {
-          store.state.cart 
-          const cartData = Cookies.get('cart');
-          return cartData ? JSON.parse(cartData) : [];
+         return store.state.cart || []
         });
+        const loadCartFromCookies = () => {
+      const cartData = Cookies.get('cart');
+      if (cartData) {
+        const cart = JSON.parse(cartData);
+        store.commit('Get_Products_From_Cart', cart);
+      }
+    };
         // const filteredCart = computed(() => this.cart.filter(item => item.product !== null));
         onMounted( async() =>  {
+          loadCartFromCookies();
             const productID = router.currentRoute.value.params.id;
-            await store.dispatch('addProductToCart', productID);
+            const quantity = 1;
+            // await store.dispatch('addProductToCart', productID);
+            await store.dispatch('getProductFromCart', {productID});
             // Cookies.get(JSON.parse('cart'));
           //  const cartItems = store.dispatch('getCartItems');
 
