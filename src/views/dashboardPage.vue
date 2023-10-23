@@ -1,5 +1,6 @@
 <template>
     <navbarComp />
+    
     <!-- Start Hero Section -->
     <div class="hero">
         <div class="container">
@@ -22,7 +23,7 @@
         </div>
     </div>
     <!-- End Hero Section -->
- 
+    <categoryBox />
 
     <!-- Start Product Section -->
                 <productComponent/>
@@ -459,6 +460,7 @@
 <script lang="ts">
 import productComponent from '@/components/productComponent.vue';
 import navbarComp from '@/components/navbarComp.vue';
+import categoryBox from '@/components/categoryBox.vue';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { onMounted, ref } from 'vue';
@@ -492,7 +494,7 @@ export default {
             message
         };
     },
-    components: { navbarComp, productComponent }
+    components: { navbarComp, productComponent, categoryBox}
 }
 </script>
 <style></style>
