@@ -31,7 +31,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarsFurni">
-                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                <ul class="custom-navbar-nav navbar-nav ms-auto mb-0 mb-md-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
@@ -42,7 +42,7 @@
                     <li><a class="nav-link" href="contact.html">Contact us</a></li>
                 </ul>
                 <div v-if="auth">
-                <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                <ul class="custom-navbar-cta navbar-nav mb-0 mb-md-0 ms-5">
                     <li v-on:click="Logout"><a class="nav-link" href="#">
                             <RouterLink to="/login"><span class="bi bi-person"></span></RouterLink></a></li>
                     <li><a class="nav-link" href="#">
@@ -179,7 +179,8 @@ export default {
     margin-left: 10px;
 }
 .navigation2{
-    background-color: #9B1FE8;
+    background-color: #7F00BE;
+    height: 10vh;
 }
 .navigation2 .navbar-brand a:hover{
     color: white;

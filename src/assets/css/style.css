@@ -32,8 +32,8 @@ body {
 
 .custom-navbar {
   background: #406559;
-  padding-top: 15px;
-  padding-bottom: 15px; }
+  padding-top: 10px;
+  padding-bottom: 10px; }
   .custom-navbar .navbar-brand {
     font-size: 32px;
     font-weight: 600; 

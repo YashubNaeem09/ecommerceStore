@@ -1,231 +1,205 @@
 <template>
-    <section id="featured-products" class="product-store padding-large">
-      <div class="container">
-       
-    <div class="text-center mb-4">
-        <h2 class="section-title px-4">Categories</h2>
-    </div>
-        <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
-          <h2 class="section-title">Featured Products</h2>            
-          <div class="btn-wrap">
-            <a href="shop.html" class="d-flex align-items-center">View all products <i class="icon icon icon-arrow-io"></i></a>
-          </div>            
-        </div>
-        <div class="swiper product-swiper overflow-hidden">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="product-item">
-                <div class="image-holder">
-                  <img src="../assets/images/person-1.jpg" alt="Books" class="product-image">
-                </div>
-                <div class="cart-concern">
-                  <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                    </button>
-                    <button type="button" class="view-btn tooltip
-                        d-flex">
-                      <i class="icon icon-screen-full"></i>
-                      <span class="tooltip-text">Quick view</span>
-                    </button>
-                    <button type="button" class="wishlist-btn">
-                      <i class="icon icon-heart"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-detail">
-                  <h3 class="product-title">
-                    <a href="single-product.html">Full sleeve cover shirt</a>
-                  </h3>
-                  <span class="item-price text-primary">$40.00</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-item">
-                <div class="image-holder">
-                  <img src="images/product-item2.jpg" alt="Books" class="product-image">
-                </div>
-                <div class="cart-concern">
-                  <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                    </button>
-                    <button type="button" class="view-btn tooltip
-                        d-flex">
-                      <i class="icon icon-screen-full"></i>
-                      <span class="tooltip-text">Quick view</span>
-                    </button>
-                    <button type="button" class="wishlist-btn">
-                      <i class="icon icon-heart"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-detail">
-                  <h3 class="product-title">
-                    <a href="single-product.html">Volunteer Half blue</a>
-                  </h3>
-                  <span class="item-price text-primary">$38.00</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-item">
-                <div class="image-holder">
-                  <img src="images/product-item3.jpg" alt="Books" class="product-image">
-                </div>
-                <div class="cart-concern">
-                  <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                    </button>
-                    <button type="button" class="view-btn tooltip
-                        d-flex">
-                      <i class="icon icon-screen-full"></i>
-                      <span class="tooltip-text">Quick view</span>
-                    </button>
-                    <button type="button" class="wishlist-btn">
-                      <i class="icon icon-heart"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-detail">
-                  <h3 class="product-title">
-                    <a href="single-product.html">Double yellow shirt</a>
-                  </h3>
-                  <span class="item-price text-primary">$44.00</span>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="product-item">
-                <div class="image-holder">
-                  <img src="images/product-item4.jpg" alt="Books" class="product-image">
-                </div>
-                <div class="cart-concern">
-                  <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                    </button>
-                    <button type="button" class="view-btn tooltip
-                        d-flex">
-                      <i class="icon icon-screen-full"></i>
-                      <span class="tooltip-text">Quick view</span>
-                    </button>
-                    <button type="button" class="wishlist-btn">
-                      <i class="icon icon-heart"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-detail">
-                  <h3 class="product-title">
-                    <a href="single-product.html">Long belly grey pant</a>
-                  </h3>
-                  <span class="item-price text-primary">$33.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
+    <section class="pt-8 pt-md-9">
+    <div class="container">
+      <div class="text-center mb-2 pt-5">
+        <h2 class="section-title px-4"><span class="px-2">Categories</span></h2>
       </div>
-    </section>
+      <!-- Categories -->
+      <div class="category row mt-6">
+        <div class="col-12 mb-4">
+          <span class="badge bg-pastel-primary text-primary text-uppercase-bold-sm">
+            Topic categories
+          </span>
+        </div>
 
+        <!-- Category -->
+        <div class="col-md-3 mb-4">
+          <a href="#" class="card custom-card align-items-center text-decoration-none border-0 hover-lift-light py-4">
+            <span class="icon-circle icon-circle-lg bg-pastel-primary text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-c</title><polyline points="352 144 464 144 464 256" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline><path d="M48,368,169.37,246.63a32,32,0,0,1,45.26,0l50.74,50.74a32,32,0,0,0,45.26,0L448,160" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path></svg>
+            </span>
+            <span class="text-light mt-3">
+              Statistics
+            </span>
+          </a>
+        </div>
 
+        <!-- Category -->
+        <div class="col-md-3 mb-4">
+          <a href="#" class="card align-items-center text-decoration-none border-0 hover-lift-light py-4">
+            <span class="icon-circle icon-circle-lg bg-pastel-primary text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-e</title><rect x="48" y="80" width="416" height="384" rx="48" ry="48" style="fill:none;stroke:#000;stroke-linejoin:round;stroke-width:32px"></rect><path d="M397.82,80H114.18C77.69,80,48,110.15,48,147.2V208H64c0-16,16-32,32-32H416c16,0,32,16,32,32h16V147.2C464,110.15,434.31,80,397.82,80Z"></path><circle cx="296" cy="232" r="24"></circle><circle cx="376" cy="232" r="24"></circle><circle cx="296" cy="312" r="24"></circle><circle cx="376" cy="312" r="24"></circle><circle cx="136" cy="312" r="24"></circle><circle cx="216" cy="312" r="24"></circle><circle cx="136" cy="392" r="24"></circle><circle cx="216" cy="392" r="24"></circle><circle cx="296" cy="392" r="24"></circle><line x1="128" y1="48" x2="128" y2="80" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><line x1="384" y1="48" x2="384" y2="80" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line></svg>
+            </span>
+            <span class="text-light mt-3">
+              Calendar
+            </span>
+          </a>
+        </div>
+
+        <!-- Category -->
+        <div class="col-md-3 mb-4">
+          <a href="#" class="card align-items-center text-decoration-none border-0 hover-lift-light py-4">
+            <span class="icon-circle icon-circle-lg bg-pastel-primary text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-l</title><path d="M431,320.6c-1-3.6,1.2-8.6,3.3-12.2a33.68,33.68,0,0,1,2.1-3.1A162,162,0,0,0,464,215c.3-92.2-77.5-167-173.7-167C206.4,48,136.4,105.1,120,180.9a160.7,160.7,0,0,0-3.7,34.2c0,92.3,74.8,169.1,171,169.1,15.3,0,35.9-4.6,47.2-7.7s22.5-7.2,25.4-8.3a26.44,26.44,0,0,1,9.3-1.7,26,26,0,0,1,10.1,2L436,388.6a13.52,13.52,0,0,0,3.9,1,8,8,0,0,0,8-8,12.85,12.85,0,0,0-.5-2.7Z" style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></path><path d="M66.46,232a146.23,146.23,0,0,0,6.39,152.67c2.31,3.49,3.61,6.19,3.21,8s-11.93,61.87-11.93,61.87a8,8,0,0,0,2.71,7.68A8.17,8.17,0,0,0,72,464a7.26,7.26,0,0,0,2.91-.6l56.21-22a15.7,15.7,0,0,1,12,.2c18.94,7.38,39.88,12,60.83,12A159.21,159.21,0,0,0,284,432.11" style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></path></svg>
+            </span>
+            <span class="text-light mt-3">
+              Conversations
+            </span>
+          </a>
+        </div>
+
+       
+      </div>
+    </div>
+
+  </section>
 
 </template>
 
 <script lang="ts">
+import { onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
+
 export default{
     name: 'categoryBox',
+    setup(){
+      const store = useStore();
+      const category = computed(() => store.state.category)
+      onMounted(async() => {
+        await store.dispatch('getCategory')
+      })
+
+    }
    
 }
 </script>
 
 <style scoped>
-/*----- Featured Products Section
---------------------------------------------------------------*/
-.product-store .product-item {
+.category{
+  margin-left: 12rem;
+}
+.hover-lift-light {
+    transition: box-shadow .25s ease,transform .25s ease,color .25s ease,background-color .15s ease-in;
+}
+.text-decoration-none {
+    text-decoration: none!important;
+}
+.py-4 {
+    padding-top: 1.5rem!important;
+    padding-bottom: 1.5rem!important;
+}
+.align-items-center {
+    align-items: center!important;
+}
+.border-0 {
+    border: 0!important;
+}
+.card {
     position: relative;
-    margin-bottom: 30px;
-}
-.product-item img.product-image {
-    background: var(--light-color);
-    border: 1px solid var(--grey-color);
-    border-radius: 6px;
-    padding: 10px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    width: 100%;
-}
-.product-item .cart-concern {
-    background: var(--light-color);
-    width: 80%;
-    text-align: center;
-    margin: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 300px;
-    z-index: 9;
-    transition: 0.5s ease-out;
-    padding: 20px 30px;
-    opacity: 0;
-}
-.product-item:hover .cart-concern {
-    bottom: 280px;
-    opacity: 1;
-}
-i.icon.icon-arrow-io {
-    font-size: 12px;
-}
-.cart-concern .cart-button button {
-    background: none;
-    color: var(--dark-color);
-    height: auto;
-    padding: 0;
-    margin: 0;
-}
-.cart-concern .cart-button button i.icon {
-    color: var(--dark-color);
-}
-.product-item .wishlist-btn i.icon.icon-heart {
-    font-size: 20px;
-    padding-left: 25px;
-}
-.product-item h3.product-title {
-    font-size: 1.4em;
-    margin: 0;
-}
-.product-item .item-price {
-    font-size: 1.8em;
-}
-.swiper.product-swiper {
-    position: relative;
-    margin-bottom: 30px;
-}
-.swiper-pagination {
-    width: 100%;
-    position: inherit;
-}
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0 10px;
-}
-.swiper-pagination .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    background: #E0EAF0;
-    opacity: 1;
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background: #7CA2BB;
-    position: relative;
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active:before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #CEDDE7;
-    border-radius: 50%;
-    top: -6px;
-    left: -6px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(30,46,80,.09);
+    border-radius: 2rem;
+    background-color: #7F00BE;
 }
 
+
+.icon-circle-lg {
+    width: 4rem;
+    height: 4rem;
+}
+.icon-circle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+}
+.bg-pastel-primary {
+    background-color: #e9f3ff!important;
+}
+
+.mt-6 {
+    margin-top: 4rem!important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem!important;
+}
+
+.badge {
+    padding: 0.4rem 0.65rem 0.25rem;
+   
+}
+.text-uppercase-bold-sm {
+    text-transform: uppercase!important;
+    font-weight: 500!important;
+    letter-spacing: 2px!important;
+    font-size: .85rem!important;
+}
+.bg-pastel-primary {
+    background-color: #e9f3ff!important;
+}
+
+.icon-circle-lg {
+    width: 4rem;
+    height: 4rem;
+}
+.icon-circle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+}
+.bg-pastel-primary {
+    background-color: #e9f3ff!important;
+}
+
+.icon-circle[class*=text-] [fill]:not([fill=none]), .icon-circle[class*=text-] svg:not([fill=none]), .svg-icon[class*=text-] [fill]:not([fill=none]), .svg-icon[class*=text-] svg:not([fill=none]) {
+    fill: currentColor!important;
+}
+.icon-circle-lg>svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(35,38,45,.09)!important;
+}
+
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group-lg>.btn, .input-group-lg>.form-control, .input-group-lg>.form-select, .input-group-lg>.input-group-text {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
+.border-0 {
+    border: 0!important;
+}
+.input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #1f2c73;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
 </style>

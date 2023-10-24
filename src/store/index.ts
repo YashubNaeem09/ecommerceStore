@@ -8,6 +8,7 @@ export default createStore({
     products: [],
     product: null,
     cart: [] as { product: any}[],
+    category: []
   },
   getters: {
     isAuthenticated: (state) => state.authenticated
@@ -16,6 +17,7 @@ export default createStore({
     SET_AUTH: (state: {authenticated: boolean}, auth: boolean) => state.authenticated = auth,
     SET_PRODUCTS: (state, products) => {state.products = products},
     SET_PRODUCT: (state, product) => {state.product = product},
+    SET_CATEGORY: (state, category) => {state.category = category},
     ADD_TO_CART: (state, product) => {
       state.cart.push({
         product : state.product,
@@ -85,6 +87,12 @@ export default createStore({
        
       }
       commit('Get_Products_From_Cart', product)
+    })
+   },
+   getCategory: ({commit}) => {
+    axios.get('/api/category/jwelery')
+    .then(response => { 
+      commit('SET_CATEGORY', response.data)
     })
    }
    
