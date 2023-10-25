@@ -1,61 +1,91 @@
 <template>
-<div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div v-for="(item, index) in slider" :key="item.id" :class="['carousel-item', {active:index === 0 } ]">
-      <img :src="item.image" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+  <div class="container-fluid pt-5">
+      <div class="text-center mb-4">
+          <h2 class="section-title px-4"><span class="px-5">Prodcuts</span></h2>
+      </div>
+      <div class="row px-xl-5 pb-3 px-5">
+          <div class="col-xl-4 col-md-6 col-sm-12 mb-4" v-for="product in category" :key="product.id">
+              <div class="card w-100 h-100">
 
+                  <img :src="product.image" class="card-img-top custom-img">
+
+                  <div class="card-body text-center p-0 pt-2">
+                      <div class="card-content d-flex flex-column justify-content-flex-start align-items-left mb-1">
+                          <h5 class="card-title titleCard">{{ product.title }}</h5>
+                      </div>
+                      <!-- <div class="card-price d-flex justify-content-center bg-light border">
+                      <p class="card-text">Price: ${{ products.price }}</p>
+                  </div> -->
+                      <div class="card-footer d-flex justify-content-between bg-light border p-2">
+                          <a href="" class="btn btn-sm text-dark p-0">Price: ${{ product.price }}</a>
+                          <a href="#" class="btn btn-sm text-dark p-0"><router-link :to="{name: 'productDetail', params: {id: product.id}}">View Details</router-link></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- <div class="row align-items-start">
+      <div v-for="products in data.product" :key="products.id" class="col-md-6 col-xl-4 d-flex">
+          <router-link :to="{name: 'productDetail', params: {id: products.id}}">View Details</router-link>
+
+          <img :src="products.image" class="img-thumbnail">
+          <h3 class="product-title">{{ products.title }}</h3>
+          <strong class="product-price">${{ products.price }}</strong>
+          <p class="product-desc">{{ products.description }}</p>
+          <span class="icon-cross">
+              <img src="../assets/images/cross.svg" class="img-fluid">
+          </span>
+
+      </div>
+  </div> -->
 </template>
 
 <script lang="ts">
-import {ref, onMounted} from 'vue';
-import axios from 'axios';
+import { onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
+import { useRoute } from 'vue-router';
 
 export default {
   name: 'categoryComp',
   setup() {
-    const slider = ref([]);
-
-    onMounted(() => {
-      axios.get('/api/products', {
-        params: {
-          limit: 3
-        }
-      })
-      .then(response => {
-        slider.value = response.data;
-      })
-      .catch(error => {
-        console.error('Error fetching products: ' + error);
+      const store = useStore();
+      const route = useRoute();
+  //    computed : {products() { store.state.products }}
+      const category = computed (() => store.state.category)
+      onMounted(async () => {
+          await store.dispatch('getCategory' , route.params.cat)
       });
-    });
-
-    return {
-      slider
-    };
+      return {
+          category
+          
+      }
   }
-};
+  
+}
 
 </script>
-
 <style scoped>
-.carousel-inner .carousel-item img{
-    width: 500px;
-    height: 680px;
+@import '../assets/css/style.css';
+@import '../assets/css/tiny-slider.css';
+
+
+.titleCard {
+  height: 2rem;
+
 }
-.swiper-slide{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+
+.custom-img {
+  margin-top: 15px;
+  margin-left: 100px;
+  height: 150px;
+  width: 180px;
+  object-position: center;
+  object-fit: contain;
+  border-bottom: none;
+}
+
+.card-content {
+  padding: 3rem 1rem;
 }
 </style>

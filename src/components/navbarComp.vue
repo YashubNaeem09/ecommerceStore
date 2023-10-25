@@ -178,13 +178,13 @@ export default {
 .social-icons a {
     margin-left: 10px;
 }
-.navigation2{
+/* .navigation2{
     background-color: #7F00BE;
     height: 10vh;
 }
 .navigation2 .navbar-brand a:hover{
     color: white;
-}
+} */
 /* .navigation2 .logo{
     margin-left: 6rem;
     font-size: 29px;

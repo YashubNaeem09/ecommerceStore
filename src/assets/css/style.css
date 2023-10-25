@@ -17,7 +17,7 @@ body {
   font-size: 14px;
   background-color: #eff2f1; }
 
-/* a {
+a {
   text-decoration: none;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
@@ -28,10 +28,10 @@ body {
     color: #2f2f2f;
     text-decoration: none; }
   a.more {
-    font-weight: 600; } */
+    font-weight: 600; }
 
 .custom-navbar {
-  background: #406559;
+  background: #7F00BE;
   padding-top: 10px;
   padding-bottom: 10px; }
   .custom-navbar .navbar-brand {

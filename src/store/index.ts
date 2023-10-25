@@ -89,9 +89,15 @@ export default createStore({
       commit('Get_Products_From_Cart', product)
     })
    },
-   getCategory: ({commit}) => {
-    axios.get('/api/category/jwelery')
+   getCategory: ({commit},cat) => {
+    axios.get('/api/products/category/'+cat)
     .then(response => { 
+      commit('SET_CATEGORY', response.data)
+    })
+   },
+   getCategories: ({commit}) => {
+    axios.get('/api/products/categories')
+    .then(response => {
       commit('SET_CATEGORY', response.data)
     })
    }
