@@ -5,28 +5,31 @@
     <div class="hero">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-lg-5">
+                <div class="col-lg-7">
                     <div class="intro-excerpt">
-                        <h1>{{ message }}<span clsas="d-block"></span></h1>
-                        <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                            vulputate velit imperdiet dolor tempor tristique.</p>
-                        <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#"
-                                class="btn btn-white-outline">Explore</a></p>
+                        <h1>{{ message }},<span class="d-block"></span></h1>
+                        <p class="mb-4">Do you want to shop from the reliable place?<br>            
+                            Welcome, then you landed at the right place.
+                        </p>
+                        <p><button type="button" class="btn btn-outline-primary me-3">Shop Now</button>
+                            <button type="button" class="btn btn-outline-primary me-3">Explore</button>
+                        </p>
+
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-5">
                     <div class="hero-img-wrap">
-                        <img src="../assets/images/couch.png" class="img-fluid">
+                        <img src="../assets/images/purple1.jpg" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Hero Section -->
+    <!-- End Hero Section --> 
     <categoryBox />
 
     <!-- Start Product Section -->
-                <productComponent/>
+                <!-- <productComponent/> -->
 
     
     <!-- End Product Section -->
@@ -458,7 +461,7 @@
     </footer>
 </template>
 <script lang="ts">
-import productComponent from '@/components/productComponent.vue';
+// import productComponent from '@/components/productComponent.vue';
 import navbarComp from '@/components/navbarComp.vue';
 import categoryBox from '@/components/categoryBox.vue';
 import axios from 'axios';
@@ -483,7 +486,7 @@ export default {
             await store.dispatch('setAuth', true)
             if(token)
             {
-                message.value = `HI ${user},`;
+                message.value = `HI ${user}`;
             }
             else {
                 message.value = `HI`;
@@ -494,7 +497,21 @@ export default {
             message
         };
     },
-    components: { navbarComp, productComponent, categoryBox}
+    components: { navbarComp, categoryBox}
 }
 </script>
-<style></style>
+<style scoped>
+.btn{
+    background-color: #bae4d2;
+    color: #7F00BE;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-color: #7F00BE;
+}
+.btn-outline-primary:hover{
+    background-color: #7F00BE;
+    color: #bae4d2;
+    border-color: #bae4d2;
+}
+</style>

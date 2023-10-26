@@ -112,6 +112,7 @@ export default {
             })
             Cookies.remove('username');
             Cookies.remove('token');
+            Cookies.remove('cart');
         }
 
         return {
@@ -131,7 +132,7 @@ export default {
 .navigation1 {
     padding-top: 5px;
     height: 7vh;
-    background-color: #EDF1FF;
+    background-color: #bae4d2;
 }
 
 .nav1 {
